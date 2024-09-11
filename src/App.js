@@ -1,6 +1,6 @@
+import { useState } from "react";
 import "./App.css";
 import UserForm from "./components/userForm/UserForm";
-import { useEffect, useState } from "react";
 import UserList from "./components/userList/UserList";
 
 function App() {
@@ -9,9 +9,6 @@ function App() {
     setUsers((prev) => [...prev, newUser]);
   };
 
-  useEffect(() => {
-    console.log({ users });
-  }, [users]);
   return (
     <div className="App">
       <UserForm onAddNewUser={onAddNewUser} />
