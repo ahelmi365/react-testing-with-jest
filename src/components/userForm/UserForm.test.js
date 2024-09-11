@@ -3,21 +3,24 @@ import user from "@testing-library/user-event";
 import UserForm from "./UserForm";
 
 describe("UserForm Components", () => {
-  it("renders UserForm component", () => {
+  function rednerComponent() {
     render(<UserForm />);
+  }
+  it("renders UserForm component", () => {
+    rednerComponent();
   });
   it("has an input field for user name", () => {
-    render(<UserForm />);
+    rednerComponent();
     const userNameField = screen.getByTestId("name");
     expect(userNameField).toBeInTheDocument();
   });
   it("has an input field for user email", () => {
-    render(<UserForm />);
+    rednerComponent();
     const userEmailField = screen.getByTestId("email");
     expect(userEmailField).toBeInTheDocument();
   });
   it("has a submit button", () => {
-    render(<UserForm />);
+    rednerComponent();
     const submitBtn = screen.getByTestId("submit");
     expect(submitBtn).toBeInTheDocument();
   });
@@ -59,5 +62,7 @@ describe("UserForm Components", () => {
       name: userData.name,
       email: userData.email,
     });
+    expect(nameInput).toHaveValue("");
+    expect(emailInput).toHaveValue("");
   });
 });
