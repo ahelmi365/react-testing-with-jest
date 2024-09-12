@@ -3,9 +3,7 @@ import user from "@testing-library/user-event";
 import UserForm from "./UserForm";
 
 describe("UserForm Components", () => {
-  function rednerComponent() {
-    render(<UserForm />);
-  }
+  function rednerComponent() {}
   it("renders UserForm component", () => {
     rednerComponent();
   });
@@ -25,7 +23,7 @@ describe("UserForm Components", () => {
     expect(submitBtn).toBeInTheDocument();
   });
 
-  it("calls onAddNewUser when the form is submitted V2", () => {
+  it("calls onAddNewUser when the form is submitted", () => {
     const onAddNewUserMock = jest.fn();
     render(<UserForm onAddNewUser={onAddNewUserMock} />);
     const userData = {
