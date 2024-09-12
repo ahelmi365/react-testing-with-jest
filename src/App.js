@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import UserForm from "./components/userForm/UserForm";
 import UserList from "./components/userList/UserList";
+import ColorList from "./components/ColorList/ColorList";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -14,6 +15,8 @@ function App() {
       <UserForm onAddNewUser={onAddNewUser} />
       <hr />
       <UserList users={users} />
+      <hr />
+      <ColorList />
     </div>
   );
 }
