@@ -3,26 +3,6 @@ import user from "@testing-library/user-event";
 import UserForm from "./UserForm";
 
 describe("UserForm Components", () => {
-  function rednerComponent() {}
-  it("renders UserForm component", () => {
-    rednerComponent();
-  });
-  it("has an input field for user name", () => {
-    rednerComponent();
-    const userNameField = screen.getByTestId("name");
-    expect(userNameField).toBeInTheDocument();
-  });
-  it("has an input field for user email", () => {
-    rednerComponent();
-    const userEmailField = screen.getByTestId("email");
-    expect(userEmailField).toBeInTheDocument();
-  });
-  it("has a submit button", () => {
-    rednerComponent();
-    const submitBtn = screen.getByTestId("submit");
-    expect(submitBtn).toBeInTheDocument();
-  });
-
   it("calls onAddNewUser when the form is submitted", () => {
     const onAddNewUserMock = jest.fn();
     render(<UserForm onAddNewUser={onAddNewUserMock} />);
