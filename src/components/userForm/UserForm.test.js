@@ -13,18 +13,20 @@ describe("UserForm Components", () => {
 
     // simulate typing  in username
     // const nameInput = screen.getByTestId("name");
+
     // screen.logTestingPlaygroundURL();
     const nameInput = screen.getByRole("textbox", { name: /name/i });
     expect(nameInput).toBeInTheDocument();
     user.click(nameInput);
-    user.keyboard(userData.name);
+    user.type(nameInput, userData.name);
 
     // simulate typing email
     // const emailInput = screen.getByTestId("email");
     const emailInput = screen.getByRole("textbox", { name: /email/i });
     expect(emailInput).toBeInTheDocument();
+
     user.click(emailInput);
-    user.keyboard(userData.email);
+    user.type(emailInput, userData.email);
 
     // find the submit button
     // const submitBtn = screen.getByTestId("submit");
@@ -40,6 +42,7 @@ describe("UserForm Components", () => {
       name: userData.name,
       email: userData.email,
     });
+    // Check if the inputs are cleared
     expect(nameInput).toHaveValue("");
     expect(emailInput).toHaveValue("");
   });
