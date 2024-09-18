@@ -16,6 +16,7 @@ describe("Color List", () => {
 
     // expect(listItems).toHaveLength(3);
   });
+
   it("renders color list using findAllByRole", async () => {
     render(<ColorList />);
     console.log("Before");
@@ -28,6 +29,7 @@ describe("Color List", () => {
     const listItems = await screen.findAllByRole("listitem");
     expect(listItems).toHaveLength(3);
   });
+
   it("renders color list using act() from RTL", async () => {
     render(<ColorList />);
     console.log("Before");
