@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 const UserList = ({ users }) => {
-  const renderedUsers = users.map((user) => (
+  const renderedUsers = users?.map((user) => (
     <tr key={user.email} data-testid="userTR" aria-label="user row">
       <td data-testid="name">{user.name}</td>
       <td data-testid="email">{user.email}</td>
