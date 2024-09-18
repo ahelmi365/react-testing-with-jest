@@ -17,7 +17,7 @@ describe("UserList Component", () => {
   });
   // 1. render one row per user
   it("renders one row per user", () => {
-    renderComponent();
+    const { mockUserList } = renderComponent();
     // find the table
     // const userTable = screen.getByTestId("userListTable");
     const userTable = screen.getByRole("table", { name: /user list table/i });
@@ -27,7 +27,7 @@ describe("UserList Component", () => {
     const allRows = screen.getAllByRole("row", { name: /user row/i });
 
     // assertion: correct number of rows in the table
-    expect(allRows).toHaveLength(allRows.length);
+    expect(allRows).toHaveLength(mockUserList.length);
   });
 
   // 2. render email and name of each user
