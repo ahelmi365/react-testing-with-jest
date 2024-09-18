@@ -19,7 +19,7 @@ const UserListFormWrapper = () => {
   );
 };
 describe("UserListIntegration Components", () => {
-  it("render(<UserForm />);renders both UserForm and UserList", () => {
+  it("render(<UserForm />);renders both UserForm and UserList", async () => {
     // render(<UserForm onAddNewUser={onAddNewUser} />);
     render(<UserListFormWrapper />);
 
@@ -35,17 +35,18 @@ describe("UserListIntegration Components", () => {
 
     // simulate entering name and email
     user.click(nameField);
-    user.type("Ali Helmi");
+    user.type(nameField, "Ali Helmi");
 
     user.click(emailField);
-    user.type("ahelmi@getgroup.com");
+    user.type(emailField, "ahelmi@getgroup.com");
 
     // find submit button
     const submitBtn = screen.getByRole("button", { name: /submit/i });
     expect(submitBtn).toBeInTheDocument();
 
     // simulate click on submit button
-    user.click(submitBtn);
+    await user.click(submitBtn);
+
     // find table in user list
     const userListTable = screen.getByRole("table", {
       name: /user list table/i,
@@ -57,6 +58,13 @@ describe("UserListIntegration Components", () => {
     expect(allRows).toHaveLength(1);
 
     // assert name to be = "Ali Helmi"
+    const nameCell = screen.getByRole("cell", { name: /Ali Helmi/i });
+    expect(nameCell).toBeInTheDocument();
+
     // assert email to be = "ahelmi@getgroup.com"
+    const emailCell = screen.getByRole("cell", {
+      name: /ahelmi@getgroup.com/i,
+    });
+    expect(emailCell).toBeInTheDocument();
   });
 });
